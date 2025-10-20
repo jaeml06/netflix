@@ -1,12 +1,6 @@
-import {
-  ArrayNotEmpty,
-  IsArray,
-  IsNotEmpty,
-  IsNumber,
-  IsOptional,
-  IsString,
-} from 'class-validator';
-
+import { CreateMovieDto } from './create-movie.dto';
+import { PartialType } from '@nestjs/mapped-types';
+export class UpdateMovieDto extends PartialType(CreateMovieDto) {}
 // enum MovieGenre {
 //   Fantasy = 'fantasy',
 //   Action = 'action',
@@ -32,67 +26,68 @@ import {
 //     });
 //   };
 // }
-export class UpdateMovieDto {
-  @IsNotEmpty()
-  @IsOptional()
-  @IsString()
-  title?: string;
+// export class UpdateMovieDto {
+//   @IsNotEmpty()
+//   @IsOptional()
+//   @IsString()
+//   title?: string;
 
-  @IsNotEmpty()
-  @IsOptional()
-  detail?: string;
+//   @IsNotEmpty()
+//   @IsString()
+//   @IsOptional()
+//   detail?: string;
 
-  @IsNotEmpty()
-  @IsOptional()
-  @IsNumber()
-  directorId?: number;
+//   @IsNotEmpty()
+//   @IsOptional()
+//   @IsNumber()
+//   directorId?: number;
 
-  @IsArray()
-  @ArrayNotEmpty()
-  @IsNumber({}, { each: true })
-  @IsOptional()
-  genreIds?: number[];
+//   @IsArray()
+//   @ArrayNotEmpty()
+//   @IsNumber({}, { each: true })
+//   @IsOptional()
+//   genreIds?: number[];
 
-  // null || undifined
-  //@IsDefined()
-  //@IsOptional()
-  //@Equals('test')
-  //@NotEquals('test')
-  /// null || undefined || '' 이어야 한다.
-  //@IsEmpty()
-  //@IsNotEmpty()
+//   // null || undifined
+//   //@IsDefined()
+//   //@IsOptional()
+//   //@Equals('test')
+//   //@NotEquals('test')
+//   /// null || undefined || '' 이어야 한다.
+//   //@IsEmpty()
+//   //@IsNotEmpty()
 
-  ///Array
-  // @IsIn(['test', 'prod', 'dev']) 이 값들 중 하나이어야 한다.
-  //@IsNotIn(['test', 'prod', 'dev']) // 이 값들이 아니어야 한다.
+//   ///Array
+//   // @IsIn(['test', 'prod', 'dev']) 이 값들 중 하나이어야 한다.
+//   //@IsNotIn(['test', 'prod', 'dev']) // 이 값들이 아니어야 한다.
 
-  //Type
-  //@IsBoolean()
-  //@IsString()
-  //@IsNumber()
-  //@IsInt()
-  //@IsArray()
-  //@IsEnum(MovieGenre)
-  //@IsDateString()
+//   //Type
+//   //@IsBoolean()
+//   //@IsString()
+//   //@IsNumber()
+//   //@IsInt()
+//   //@IsArray()
+//   //@IsEnum(MovieGenre)
+//   //@IsDateString()
 
-  //숫자
-  //@IsDivisibleBy(2)
-  //@IsPositive()
-  //@IsNegative()
-  //@Min(100)
-  //@Max(100)
+//   //숫자
+//   //@IsDivisibleBy(2)
+//   //@IsPositive()
+//   //@IsNegative()
+//   //@Min(100)
+//   //@Max(100)
 
-  //문자
-  //@Contains('test')
-  //@NotContains('test')
-  //@IsAlphanumeric() 알파벳과 숫자로 이루어져 있는가? 공백도 안됨
-  //@IsCreditCard()
-  //@IsHexColor()
-  //@MaxLength(10)
-  //@MinLength(2)
-  //@IsUUID()
-  //@IsLatLong() 위도 경도
-  // @Validate(PasswordValidator)
-  // @IsPasswordValid()
-  // test: string;
-}
+//   //문자
+//   //@Contains('test')
+//   //@NotContains('test')
+//   //@IsAlphanumeric() 알파벳과 숫자로 이루어져 있는가? 공백도 안됨
+//   //@IsCreditCard()
+//   //@IsHexColor()
+//   //@MaxLength(10)
+//   //@MinLength(2)
+//   //@IsUUID()
+//   //@IsLatLong() 위도 경도
+//   // @Validate(PasswordValidator)
+//   // @IsPasswordValid()
+//   // test: string;
+// }
